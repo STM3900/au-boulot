@@ -1,3 +1,210 @@
+@font-face {
+  font-family: "splatoon";
+  src: local("splatoon"), url(splatoon-font.otf) format("truetype");
+}
+
+@font-face {
+  font-family: "splatoontitle";
+  src: local("splatoontitle"), url(splatoon-font-title.otf) format("truetype");
+}
+
 body {
-    background: beige;
+  background: linear-gradient(135deg, #ff2100 25%, transparent 5%) -80px 0,
+    linear-gradient(225deg, #ff2100 25%, transparent 5%) -80px 0,
+    linear-gradient(315deg, #ff2100 25%, transparent 5%),
+    linear-gradient(45deg, #ff2100 25%, transparent 5%);
+  background-size: 160px 180px;
+  background-color: #ff460e;
+
+  font-family: splatoon;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: -50px;
+
+  background-image: url(chum-bg1.png);
+  background-repeat: repeat;
+
+  z-index: -1;
+}
+
+.mr-ours {
+  width: 800px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  margin-top: 50px;
+}
+
+.mr-ours img {
+  width: 400px;
+  filter: brightness(0.7) drop-shadow(8px 8px 20px black);
+}
+
+.dialog-box {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+
+  margin-top: 50px;
+}
+
+.dialog-box header {
+  width: 300px;
+  color: white;
+  background: #171717;
+
+  transform: translate(-10px, 5px) rotate(1deg);
+  border-radius: 1px;
+}
+
+.dialog-box header p {
+  font-size: 18px;
+  margin: 0;
+  margin-left: 15px;
+  font-family: splatoontitle;
+  color: #cc3e1f;
+  transition: all 0.3s;
+}
+
+.dialog-box div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  min-height: 120px;
+}
+
+.dialog-box div img {
+  width: 60px;
+  border-radius: 7px;
+  padding: 20px 10px;
+}
+
+.dialog-box div p {
+  font-size: 18px;
+  color: white;
+  margin: 0;
+  padding: 20px 10px;
+  line-height: 25px;
+}
+
+.dialog-box div p span {
+  display: inline-block;
+}
+
+.fade-in {
+  animation: fadeIn 0.2s;
+}
+
+@keyframes fadeIn {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    opacity: 0;
+    transform: translateX(-4px) translateY(-4px) rotate(4deg);
+    filter: blur(1px);
+  }
+  50% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    opacity: 1;
+    transform: translateX(0px) rotate(0deg);
+  }
+}
+
+.form {
+  width: 800px;
+  height: 200px;
+
+  background-image: url(tag.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  transform: rotate(2deg);
+
+  margin-top: 50px;
+}
+
+.form input {
+  width: 500px;
+  padding: 2px 20px;
+  outline: none;
+
+  font-family: splatoon;
+  font-size: 18px;
+  border-radius: 10px;
+
+  border: none;
+  box-shadow: inset 0 0 5px #00000077;
+}
+
+.form button {
+  outline: none;
+  border-radius: 50%;
+  border: none;
+  margin-left: 15px;
+  font-size: 18px;
+
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  background: rgba(25, 25, 25);
+  color: #ff460e;
+
+  transition: 0.3s;
+  margin-top: 3px;
+}
+
+.form button:hover {
+  cursor: pointer;
+  background: #ff460e;
+  color: rgba(25, 25, 25);
+  transform: rotate(10deg);
+}
+
+.form button:active {
+  transform: scale(0.9) rotate(10deg);
+}
+
+.input-quote {
+  margin: 0
 }

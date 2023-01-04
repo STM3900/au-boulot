@@ -30,18 +30,36 @@ const spriteDurations = [
   150, 200, 200,
 ];
 
-const button = document.querySelector("button");
+const mrGrizzQuotes = [
+  "Salmonoboss en approche. AU BOULOT !",
+  "Allez, les petits oeufs, venez voir papa... Tu t'en sors pas trop mal pour le moment... MAINTENANT, VA EN CHERCHER D'AUTRES !",
+  "Le panier à œufs attend que tu le remplisses. C'est pas le moment de flancher.",
+  "Un banc de Salmonoïdes est en train de se rassembler sur la côte. Faites-en autant et canardez-moi ça.",
+  "Le panier à œufs est prêt. On a une ville à protéger, alors au boulot ! Et me décevez pas !",
+  "Je vais pas tourner autour du pot : ça grouille de Salmonoïdes. On reste concentré sur l'objectif et on avance. J'espère que tout le monde a pris son café...",
+]
+
+const randomInt = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+const button = document.querySelector(".input-button");
+const buttonQuote = document.querySelector(".input-quote");
 const input = document.querySelector(".input");
-const text = document.querySelector("p");
+const text = document.querySelector(".dialog");
 
 button.addEventListener("click", () => {
   text.innerHTML = ""
   playText(input.value);
 });
 
-const randomInt = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+buttonQuote.addEventListener("click", () => {
+  text.innerHTML = ""
+  const selectedQuote = mrGrizzQuotes[randomInt(0, mrGrizzQuotes.length - 1)]
+  //input.value = selectedQuote
+  playText(selectedQuote);
+});
+
 
 let counter = 0;
 
@@ -107,7 +125,7 @@ const playText = (sentence) => {
     setTimeout(
       () => {
         const counterMax = sentenceTab[counterFor].syllabes;
-        text.innerHTML += sentenceTab[counterFor].word + " ";
+        text.insertAdjacentHTML('beforeend', `<span class="fade-in">${sentenceTab[counterFor].word}</span> `);
         playDialogue(counterMax, sentenceTab[counterFor]);
 
         counter = 0;
