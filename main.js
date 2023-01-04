@@ -1,7 +1,7 @@
 import { syllable } from "https://esm.sh/syllable@5?bundle";
 
 let sound = new Howl({
-  src: ["mrgrizz.mp3"],
+  src: ["sound/mrgrizz.mp3"],
   sprite: {
     voice0: [350, 200],
     voice1: [650, 150],
@@ -32,12 +32,20 @@ const spriteDurations = [
 
 const mrGrizzQuotes = [
   "Salmonoboss en approche. AU BOULOT !",
-  "Allez, les petits oeufs, venez voir papa... Tu t'en sors pas trop mal pour le moment... MAINTENANT, VA EN CHERCHER D'AUTRES !",
+  "Allez, les petits œufs, venez voir papa... Tu t'en sors pas trop mal pour le moment... MAINTENANT, VA EN CHERCHER D'AUTRES !",
   "Le panier à œufs attend que tu le remplisses. C'est pas le moment de flancher.",
   "Un banc de Salmonoïdes est en train de se rassembler sur la côte. Faites-en autant et canardez-moi ça.",
   "Le panier à œufs est prêt. On a une ville à protéger, alors au boulot ! Et me décevez pas !",
   "Je vais pas tourner autour du pot : ça grouille de Salmonoïdes. On reste concentré sur l'objectif et on avance. J'espère que tout le monde a pris son café...",
-]
+  "Un Vaisseau mère. Allumez-le à plusieurs. Et le premier qui parle de prime de risque est VIRÉ.",
+  "Il y a un vieux proverbe sur les Salmonoïdes de boue... « Si t'en vois un jaillir en trombe, dans sa grande gueule envoie une bombe. » Oui, c'est un proverbe assez technique.",
+  "Salmonarque en approche, et donc heures sup obligatoires au programme. Voici un canon à œufs, à vous de jouer !",
+  "Y a des Sumoches sur la côte. Et des canons à disposition. Je te laisse deviner la suite.",
+  "Une tprnade géante ! Les Salmonoïdes qu'elle engloutira seront projetés sur le rivage. Oh, et le panier à œufs au bord de l'eau est bloqué aussi. C'est la fête...",
+  "Le brouillard rapplique. C'est pas bon... Mais perds pas espoir, il s'agit de rester concentré.",
+  "Un Barkeurk... Sa queue n'est pas blindée, allume-la et il fera pas long feu.",
+  "Des jets d'encre... Le Dorax doit pas être loin ! Chope-le, encre-le, et fait-lui lâcher ses œufs !"
+];
 
 const randomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -49,17 +57,23 @@ const input = document.querySelector(".input");
 const text = document.querySelector(".dialog");
 
 button.addEventListener("click", () => {
-  text.innerHTML = ""
+  text.innerHTML = "";
   playText(input.value);
 });
 
 buttonQuote.addEventListener("click", () => {
-  text.innerHTML = ""
-  const selectedQuote = mrGrizzQuotes[randomInt(0, mrGrizzQuotes.length - 1)]
+  text.innerHTML = "";
+  const selectedQuote = mrGrizzQuotes[randomInt(0, mrGrizzQuotes.length - 1)];
   //input.value = selectedQuote
   playText(selectedQuote);
 });
 
+input.addEventListener("keyup", function (event) {
+  if (event.key === "Enter") {
+    text.innerHTML = "";
+    playText(input.value);
+  }
+});
 
 let counter = 0;
 
@@ -125,7 +139,10 @@ const playText = (sentence) => {
     setTimeout(
       () => {
         const counterMax = sentenceTab[counterFor].syllabes;
-        text.insertAdjacentHTML('beforeend', `<span class="fade-in">${sentenceTab[counterFor].word}</span> `);
+        text.insertAdjacentHTML(
+          "beforeend",
+          `<span class="fade-in">${sentenceTab[counterFor].word}</span> `
+        );
         playDialogue(counterMax, sentenceTab[counterFor]);
 
         counter = 0;
