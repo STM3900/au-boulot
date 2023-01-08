@@ -5,7 +5,8 @@
 
 @font-face {
   font-family: "splatoontitle";
-  src: local("splatoontitle"), url(fonts/splatoon-font-title.otf) format("truetype");
+  src: local("splatoontitle"),
+    url(fonts/splatoon-font-title.otf) format("truetype");
 }
 
 body {
@@ -53,6 +54,7 @@ body {
 .mr-ours img {
   width: 400px;
   filter: brightness(0.7) drop-shadow(8px 8px 20px black);
+  transform: rotate(-1deg);
 }
 
 .dialog-box {
@@ -64,6 +66,7 @@ body {
   align-content: center;
 
   margin-top: 50px;
+  transform: rotate(1deg);
 }
 
 .dialog-box header {
@@ -71,7 +74,7 @@ body {
   color: white;
   background: #171717;
 
-  transform: translate(-10px, 5px) rotate(1deg);
+  transform: translate(-10px, 5px) rotate(0.5deg);
   border-radius: 1px;
 }
 
@@ -152,8 +155,7 @@ body {
   align-items: center;
   align-content: center;
 
-  transform: rotate(1deg);
-
+  transform: rotate(-0.5deg);
   margin-top: 50px;
 }
 
@@ -207,11 +209,17 @@ body {
 }
 
 .input-quote {
-  margin: 0
+  margin: 0;
+}
+
+@media screen and (max-width: 1600px) {
+  .mr-ours img {
+    width: 30%;
+  }
 }
 
 @media screen and (max-width: 807px) {
-  body{
+  body {
     padding: 0 15px;
   }
 
@@ -231,7 +239,7 @@ body {
     width: 100%;
   }
 
-  .dialog-box header{
+  .dialog-box header {
     width: 200px;
   }
 
@@ -245,7 +253,7 @@ body {
 }
 
 @media screen and (max-width: 400px) {
-  body{
+  body {
     margin: 0px 5px;
     min-height: 100vh;
 
@@ -255,7 +263,6 @@ body {
     align-items: center;
     align-content: center;
   }
-
 
   .dialog-box div img {
     width: 50px;

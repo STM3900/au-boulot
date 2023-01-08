@@ -41,10 +41,10 @@ const mrGrizzQuotes = [
   "Il y a un vieux proverbe sur les Salmonoïdes de boue... « Si t'en vois un jaillir en trombe, dans sa grande gueule envoie une bombe. » Oui, c'est un proverbe assez technique.",
   "Salmonarque en approche, et donc heures sup obligatoires au programme. Voici un canon à œufs, à vous de jouer !",
   "Y a des Sumoches sur la côte. Et des canons à disposition. Je te laisse deviner la suite.",
-  "Une tprnade géante ! Les Salmonoïdes qu'elle engloutira seront projetés sur le rivage. Oh, et le panier à œufs au bord de l'eau est bloqué aussi. C'est la fête...",
+  "Une tornade géante ! Les Salmonoïdes qu'elle engloutira seront projetés sur le rivage. Oh, et le panier à œufs au bord de l'eau est bloqué aussi. C'est la fête...",
   "Le brouillard rapplique. C'est pas bon... Mais perds pas espoir, il s'agit de rester concentré.",
   "Un Barkeurk... Sa queue n'est pas blindée, allume-la et il fera pas long feu.",
-  "Des jets d'encre... Le Dorax doit pas être loin ! Chope-le, encre-le, et fait-lui lâcher ses œufs !"
+  "Des jets d'encre... Le Dorax doit pas être loin ! Chope-le, encre-le, et fait-lui lâcher ses œufs !",
 ];
 
 const randomInt = (min, max) => {
